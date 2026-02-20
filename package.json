@@ -10,10 +10,22 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
+    "@sanity/astro": "^3.2.11",
+    "@sanity/client": "^7.15.0",
+    "@sanity/image-url": "^2.0.3",
     "@tailwindcss/vite": "^4.1.18",
     "@types/canvas-confetti": "^1.9.0",
     "astro": "^5.17.1",
+    "astro-portabletext": "^0.13.0",
     "canvas-confetti": "^1.9.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-is": "^19.2.4",
+    "sanity": "^5.11.0",
+    "styled-components": "^6.3.11",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19"
   }
 }

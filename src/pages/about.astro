@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import avatar from "../images/avatar.jpg";
+---
+
+<Layout content={{ title: "About" }}>
+  <main class="container mx-auto min-h-screen max-w-4xl px-6 py-20 space-y-12">
+    <section class="flex flex-col gap-10 lg:flex-row lg:items-center">
+      <div class="mx-auto w-full max-w-sm shrink-0 lg:mx-0">
+        <img
+          src={avatar.src}
+          width={avatar.width}
+          height={avatar.height}
+          alt="Portrait of Pilkington"
+          class="w-full rounded-3xl border-4 border-slate-500 shadow-2xl"
+          loading="lazy"
+        />
+      </div>
+      <div class="space-y-4 rounded-3xl border border-sky-100 bg-sky-50 p-8 text-lg leading-relaxed text-slate-700 shadow-sm">
+        <p>
+          I'm teaching myself web development one build at a time, pairing Astro with Sanity to
+          understand how modern content systems come together. I recently wrapped up a round of
+          Sanity platform training, and now I'm putting that knowledge to work on personal projects
+          like this site.
+        </p>
+        <p>
+          When I'm not iterating on layouts or experimenting with new integrations, you'll usually
+          find me coding for fun, kayaling across calm water, or hiking the trails of northern
+          Arizona. These adventures keep me curious, energized, and ready to tackle the next
+          challenge on the web.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>

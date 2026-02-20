@@ -1,0 +1,32 @@
+---
+import type { SanityDocument } from "@sanity/client";
+import { sanityClient } from "sanity:client";
+import Layout from "../../layouts/Layout.astro";
+
+const POSTS_QUERY = `*[
+  _type == "post"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{_id, title, slug, publishedAt}`;
+
+const posts = await sanityClient.fetch<SanityDocument[]>(POSTS_QUERY);
+---
+<Layout content={{ title: "Posts" }}>
+  <main class="container mx-auto min-h-screen max-w-3xl p-8">
+    <h1 class="text-4xl font-bold mb-8">Posts</h1>
+    <ul class="flex flex-col gap-y-4">
+      {posts.map((post) => (
+          <li>
+            <a
+              href={`/posts/${post.slug.current}`}
+              class="block rounded-2xl border border-sky-100 bg-sky-50 p-6 shadow-sm transition-shadow hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400 no-underline hover:no-underline"
+            >
+              <h2 class="text-xl font-semibold text-slate-900">{post.title}</h2>
+              <p class="text-sm text-slate-600">
+                {new Date(post.publishedAt).toLocaleDateString()}
+              </p>
+            </a>
+          </li>
+        ))}
+    </ul>
+  </main>
+</Layout>
