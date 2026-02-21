@@ -3,11 +3,17 @@ import { defineConfig } from "astro/config";
 
 import sanity from "@sanity/astro";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
+  image: {
+    domains: ['axodg5mc.api.sanity.io']
+  },
   vite: {
     plugins: [tailwindcss()],
   },
+
   integrations: [
     // 👇 update these lines
     sanity({
@@ -16,4 +22,6 @@ export default defineConfig({
       useCdn: false, // for static builds
     }),
   ],
+
+  adapter: cloudflare(),
 });
